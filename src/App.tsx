@@ -1,10 +1,10 @@
 
-import Component from "./starter/04-events";
+import Challenge1 from "./challenge/challenge1";
 
 function App() {
   return (
     <main>
-      <Component/>
+      <Challenge1/>
     </main>
   );
 }
