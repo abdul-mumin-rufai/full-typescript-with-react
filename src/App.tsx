@@ -1,10 +1,11 @@
+import Component from "./starter/05-challenge";
 
-import Challenge1 from "./challenge/challenge1";
 
 function App() {
   return (
     <main>
-      <Challenge1/>
+      <Component type="basic" name="Abdul-Mumin" />
+      <Component type="advanced" name="Rufai" email="rmbrufai@gmail.com"/>
     </main>
   );
 }
