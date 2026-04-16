@@ -1,3 +1,19 @@
+import { TypescriptComponent, useTypescriptContext } from "./contextAPI";
+
+function MainComponent() { 
+  return (
+    <TypescriptComponent>
+      <Component />
+    </TypescriptComponent>
+  );
+    return <Component/>
+};
+
+const context = useTypescriptContext();
+console.log(context);
+
+
+
 function Component() {
   return (
     <div>
@@ -6,4 +22,4 @@ function Component() {
     </div>
   );
 }
-export default Component;
+export default MainComponent();
