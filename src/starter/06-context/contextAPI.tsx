@@ -1,20 +1,22 @@
 import { createContext, useContext } from "react";
 
-export const typescriptContext = createContext<{name:string} | undefined>(undefined);
+const TypescriptContext = createContext<{name:string} | undefined>(undefined);
 
+
+// this component returns the created context with a dot Provider
 export function TypescriptComponent ({children}:{children: React.ReactNode}) {
     return (
-        <typescriptContext.Provider value={{name:'Mumin'}}>
+        <TypescriptContext.Provider value={{ name: 'Mumin' }}>
             {children}
-        </typescriptContext.Provider>
-    )
+        </TypescriptContext.Provider>
+    );
 }
 
 export const useTypescriptContext = () => { 
-    const context = useContext(typescriptContext);
+    const myContext = useContext(TypescriptContext);
 
-    if (context === undefined) 
-        throw new Error('useTypescriptContext must used within TypescriptComponent')
+    if (myContext === undefined)
+        throw new Error('useTypescriptContext must used within TypescriptComponent');
     
-    return context;
-};
+    return myContext;
+}; 

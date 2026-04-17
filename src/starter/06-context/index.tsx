@@ -9,12 +9,11 @@ function MainComponent() {
     return <Component/>
 };
 
-const context = useTypescriptContext();
-console.log(context);
-
-
 
 function Component() {
+  const context = useTypescriptContext();
+  console.log(context);
+  
   return (
     <div>
       <h2>React & Typescript</h2>
@@ -22,4 +21,4 @@ function Component() {
     </div>
   );
 }
-export default MainComponent();
+export default MainComponent;
