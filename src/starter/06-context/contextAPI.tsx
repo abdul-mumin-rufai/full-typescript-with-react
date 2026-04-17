@@ -1,12 +1,26 @@
-import { createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-const TypescriptContext = createContext<{name:string} | undefined>(undefined);
+const TypescriptContext = createContext<TypeTheme | undefined>(undefined);
 
+type Theme = 'light' | 'dark' | 'system';
+
+type TypeTheme = {
+    theme: Theme;
+    setTheme: (theme: Theme) => void;
+};
+
+type ThemeComponent = {
+    children: React.ReactNode;
+    defaultTheme?: Theme;
+}
 
 // this component returns the created context with a dot Provider
-export function TypescriptComponent ({children}:{children: React.ReactNode}) {
+export function TypescriptComponent({ children, defaultTheme = 'system' }: ThemeComponent) {
+    
+    const [theme, setTheme] = useState<Theme>(defaultTheme);
+    
     return (
-        <TypescriptContext.Provider value={{ name: 'Mumin' }}>
+        <TypescriptContext.Provider value={{theme, setTheme}}>
             {children}
         </TypescriptContext.Provider>
     );
