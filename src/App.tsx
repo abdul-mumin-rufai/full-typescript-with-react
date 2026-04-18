@@ -1,11 +1,10 @@
-//import Component from "./starter/06-context";
-import MainComponent from "./starter/06-context";
+import Component from "./starter/07-reducers";
 
 
 function App() {
   return (
     <main>
-        <MainComponent/>
+        <Component/>
     </main>
   );
 }
