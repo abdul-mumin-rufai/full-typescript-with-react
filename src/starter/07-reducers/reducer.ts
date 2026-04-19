@@ -12,7 +12,12 @@ type StateAction = {
     type: 'increment'| 'decrement'| 'reset'
 };
 
-export type UpdateCounter = StateAction;
+type StatusType = {
+    type: 'setStatus';
+    payload: 'active' | 'inactive';
+};
+
+export type UpdateCounter = StateAction| StatusType;
 
 
 export const reducerFunction = (state: StateTpye, action: UpdateCounter): StateTpye => { 
@@ -22,9 +27,12 @@ export const reducerFunction = (state: StateTpye, action: UpdateCounter): StateT
         case 'increment':
             return { ...state, count: state.count + 1 };
         case 'reset':
-            return{...state, count: 0}
+            return { ...state, count: 0 }
+        case 'setStatus':
+            return {...state, status: action.payload};
         default:
-            return state;
+            const unHandledType: never = action;
+            throw new Error(`Unhandled type ${unHandledType} check the reducer function`);
     }
 };
 
