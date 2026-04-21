@@ -22,11 +22,11 @@ function Component() {
           console.log(results.error.message);
           throw new Error('Failed to parse api data');
         };
-        setApiData(results.data);
+        setApiData(results.data); // passing the data to the setApaData variable in the useState
         
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'there was an error';
-        setIsError(errorMessage);
+        setIsError(errorMessage); // setting the error value to the setIsError variable in the useState
       } finally {
         setIsLoading(false);
       }
@@ -39,7 +39,7 @@ function Component() {
     return <h2>Loading...</h2>
   };
   if (isError) {
-    return <h2>Error...</h2>
+    return <h2>Error: {isError}</h2>
   }
   return (
     <div>
