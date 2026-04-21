@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+/* import { useState, useEffect } from 'react';
 import { apiDataSchema, type ApiData } from './types';
-const url = 'https://www.course-api.com/react-tours-project';
+
 
 function Component() {
   const [apiData, setApiData] = useState<ApiData[]>([]);
@@ -53,4 +53,28 @@ function Component() {
     </div>
   );
 }
+export default Component;
+ */
+
+
+import { fetchData } from "./types";
+import { useQuery } from "@tanstack/react-query";
+
+function Component() { 
+  const { isPending, isError, error, data: Tours } = useQuery({ queryKey: ['tour'], queryFn: fetchData })
+  if (isPending) return <h4>Loading...</h4>
+  if (isError) return <h3>Error: {error.message}</h3>
+  
+  return (
+    <div>
+      <h1 className="text-center">Tours List</h1>
+      {Tours.map((tour) => {
+        return (
+          <h2 className="mb-1" key={tour.id}>{tour.name} </h2>
+        )
+      })}
+    </div>
+  );
+};
+
 export default Component;

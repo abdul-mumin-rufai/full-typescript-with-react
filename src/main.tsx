@@ -6,4 +6,10 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
+const quryClient =  new QueryClient();
+ReactDOM.createRoot(document.getElementById('root')!).render(
+    <QueryClientProvider client={quryClient}>
+        <App />
+
+    </QueryClientProvider>
+);
