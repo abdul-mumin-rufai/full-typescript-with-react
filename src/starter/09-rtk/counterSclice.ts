@@ -32,3 +32,6 @@ export const CounterSlice = createSlice({
         },
     }
 });
+
+export const { increment, decrement, reset, stateStatus } = CounterSlice.actions;
+export default CounterSlice.reducer;
