@@ -1,8 +1,11 @@
+import Form from "./form";
+import List from "./list";
+
 function Component() {
   return (
     <div>
-      <h2>React & Typescript</h2>
-      <h2>Task List</h2>
+      <Form />
+      <List/>
     </div>
   );
 }
