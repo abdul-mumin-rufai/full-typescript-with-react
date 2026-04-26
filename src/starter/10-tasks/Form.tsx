@@ -18,7 +18,7 @@ const Form = ({addTask}:TaskProp) => {
         }
         // add tasks
         addTask({
-            id: new Date().getDate().toString(),
+            id: new Date().getTime().toString(),
             description: text,
             isComplete:false,
         });
